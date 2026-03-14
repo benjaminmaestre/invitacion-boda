@@ -62,7 +62,7 @@ function App() {
 
     elementos.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [invitado, estaAbierto]);
 
   // MÚSICA
   const abrirInvitacion = () => {
