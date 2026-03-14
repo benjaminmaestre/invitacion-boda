@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-body text-texto bg-fondo w-full max-w-[460px] mx-auto min-h-screen overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .fade-up {
+    @apply opacity-0 translate-y-[28px] transition-all duration-[800ms] ease-in-out;
+  }
+  .fade-up.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  @keyframes scroll-indicator {
+    0% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(12px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+  }
+
+  .scroll-invite {
+    animation: scroll-indicator 2.5s ease-in-out infinite;
+  }
+}
+
+@layer components {
+  section {
+    @apply px-5 sm:px-7 py-[44px] sm:py-[54px] text-center border-b border-[#e8ddd0] bg-fondo w-full box-border;
+  }
+
+  section h2 {
+    @apply font-script text-[2.4rem] sm:text-[2.7rem] font-normal text-texto mb-[14px];
+  }
+
+  section h3 {
+    @apply text-[0.75rem] sm:text-[0.78rem] tracking-[4px] my-[10px] text-acento;
+  }
+
+  section p {
+    @apply text-[0.85rem] sm:text-[0.92rem] leading-[1.8] sm:leading-[1.9] text-texto-suave;
+  }
+
+  .btn {
+    @apply block w-full bg-acento text-white px-[20px] sm:px-[22px] py-[16px] sm:py-[14px] rounded-full no-underline cursor-pointer font-body text-[0.7rem] sm:text-[0.74rem] font-bold tracking-[2px] sm:tracking-[2.6px] text-center transition-all duration-200 ease-in-out shadow-custom hover:bg-acento-oscuro hover:-translate-y-[1px];
+  }
+  
+  .btn-secundario {
+    @apply bg-transparent text-acento border border-acento shadow-none hover:bg-[rgba(125,92,67,0.08)];
+  }
+
+  .btn-whatsapp {
+    @apply bg-[#25d366] hover:bg-[#1fad57];
+  }
+
+  .radio-group-label {
+    @apply text-[0.85rem] sm:text-[0.9rem] flex items-center gap-[10px] cursor-pointer text-texto-suave py-2;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-[16px] border border-[#d7c6b1] rounded-2xl font-body text-[0.85rem] sm:text-[0.92rem] bg-white outline-none text-texto focus:border-acento focus:ring-[3px] focus:ring-[rgba(125,92,67,0.12)];
+  }
+}
