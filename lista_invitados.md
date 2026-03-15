@@ -4,7 +4,7 @@ Aquí tienes la lista de enlaces personalizados para tus invitados.
 
 | # | Invitado(s) | Enlace de Invitación |
 |---|---|---|
-| 1 | Gustavo & libia | `https://invitacion-cesar-lorena.vercel.app/Gustavo+-+Libia` |
+| 1 | Gustavo & Libia | `https://invitacion-cesar-lorena.vercel.app/Gustavo+-+Libia` |
 | 2 | Cielo & Rodrigo | `https://invitacion-cesar-lorena.vercel.app/Cielo+-+Rodrigo` |
 | 3 | Familia Vélez Aristizabal | `https://invitacion-cesar-lorena.vercel.app/Familia+Vélez+Aristizabal` |
 | 4 | Rodrigo & Nathalia | `https://invitacion-cesar-lorena.vercel.app/Rodrigo+-+Nathalia` |
