@@ -189,6 +189,11 @@ function App() {
   };
 
   const getGreeting = (name: string) => {
+    const n = name.trim().toLowerCase();
+    // Congregación específica
+    if (n.includes('congregación') || n.includes('congregacion')) {
+      return "Están invitados a nuestro discurso de bodas";
+    }
     // Plural / Familia
     if (isPluralName(name)) {
       return "Están invitados a nuestra boda";
