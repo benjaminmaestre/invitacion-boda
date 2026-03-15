@@ -286,7 +286,7 @@ function App() {
           <p>Tu presencia será nuestro mejor regalo. Pero si deseas tener un detalle con nosotros, lo recibiremos con mucho cariño.</p>
           <div className="mt-[16px] text-acento flex items-center justify-center gap-2 bg-[#fbf7f2] px-6 py-3 rounded-xl border border-[#e1d6c8]">
             <MailOpen size={20} strokeWidth={2} />
-            <span className="text-[0.85rem] tracking-[2px] font-bold">SOBRE · EFECTIVO</span>
+            <span className="text-[0.85rem] tracking-[2px] font-bold">LLUVIA DE SOBRES</span>
           </div>
         </section>
       )}
