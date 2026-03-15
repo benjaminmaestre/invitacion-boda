@@ -14,8 +14,11 @@ function App() {
 
   // CAPTURAR NOMBRE DE URL
   useEffect(() => {
+    // 1. Intentar desde el pathname (ej: /Valeria)
+    const path = window.location.pathname.substring(1);
     const params = new URLSearchParams(window.location.search);
-    const nombreURL = params.get('n');
+    const nombreURL = path ? decodeURIComponent(path) : params.get('n');
+
     if (nombreURL) {
       const nombreLimpio = nombreURL.replace(/-/g, '&');
       setInvitado(nombreLimpio);
