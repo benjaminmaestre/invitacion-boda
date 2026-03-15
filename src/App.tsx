@@ -294,7 +294,7 @@ function App() {
           <a className="btn flex items-center justify-center gap-2" href="#" onClick={handleCalendario}>
             <CalendarHeart size={18} /> AGENDAR RECORDATORIO
           </a>
-          {invitado && (
+          {showPrivateSections(invitado) && (
             <a className="btn btn-secundario flex items-center justify-center gap-2" href="#rsvp">
               <MailOpen size={18} /> CONFIRMAR ASISTENCIA
             </a>
