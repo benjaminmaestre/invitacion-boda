@@ -71,6 +71,24 @@ function App() {
     return () => observer.disconnect();
   }, [invitado, estaAbierto]);
 
+  // SMART AUDIO MANAGEMENT
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        if (reproduciendo && audioRef.current) {
+          audioRef.current.pause();
+        }
+      } else if (document.visibilityState === 'visible') {
+        if (reproduciendo && audioRef.current && estaAbierto) {
+          audioRef.current.play().catch(() => {});
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [reproduciendo, estaAbierto]);
+
   // MÚSICA
   const abrirInvitacion = () => {
     setIniciandoSalida(true);
