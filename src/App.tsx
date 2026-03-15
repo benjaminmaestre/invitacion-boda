@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import { CalendarHeart, Wine, Gift, MapPin, MailOpen, Music, Pause } from 'lucide-react';
 
-const fechaBoda = new Date("2026-05-02T15:00:00");
+const fechaBoda = new Date("2026-05-02T12:15:00");
 const numeroWhatsApp = "573107379163";
 
 function App() {
@@ -87,7 +87,7 @@ function App() {
   // CALENDARIO
   const handleCalendario = (e: React.MouseEvent) => {
     e.preventDefault();
-    const url = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Cesar+%26+Lorena&dates=20261213T150000/20261213T230000&details=Nos+casamos!&location=Iglesia+San+Pedro+Claver";
+    const url = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Cesar+%26+Lorena&dates=20260502T121500/20260502T180000&details=¡Nos+casamos!&location=Cl+30A+%23+82-11,+Belén,+Medellín";
     window.open(url, "_blank");
   };
 
@@ -220,7 +220,7 @@ function App() {
         <div className="flex justify-center items-center gap-[14px] text-[1rem] my-[10px] font-serif text-texto">
           <span>02 MAYO 2026</span>
           <span className="text-acento-claro text-[1.5rem]">|</span>
-          <span>2:00 PM</span>
+          <span>12:15 PM</span>
         </div>
         <p className="text-[#9a836a] text-[0.88rem] mb-[2px]">Cl 30A # 82-11, Brr. Belén</p>
         <p className="text-[#9a836a] text-[0.88rem] mb-[8px]">MEDELLÍN, ANTIOQUIA</p>
@@ -237,7 +237,7 @@ function App() {
           <div className="flex justify-center items-center gap-[14px] text-[1rem] my-[10px] font-serif text-texto">
             <span>02 MAYO 2026</span>
             <span className="text-acento-claro text-[1.5rem]">|</span>
-            <span>5:00 PM</span>
+            <span>2:00 PM</span>
           </div>
           <p className="text-[#9a836a] text-[0.88rem] mb-[8px]">Salon de Eventos Residencias Plaza Vicuña</p>
           <a className="btn w-auto inline-block mt-4 px-8" href="https://maps.app.goo.gl/9rUdQrSbBHig1hCJ8" target="_blank" rel="noopener noreferrer">VER UBICACIÓN</a>
