@@ -174,7 +174,15 @@ function App() {
       <section id="bienvenida" className="fade-up">
         {invitado ? (
           <>
-            <h2 className="mb-2">¡Hola {invitado}!</h2>
+            <h2 className="mb-2">
+              ¡Hola {invitado.includes('&') ? (
+                <>
+                  {invitado.split('&')[0]}
+                  <span className="text-[0.6em] sm:text-[0.5em] opacity-80 mx-1 relative -top-[0.1em]">&</span>
+                  {invitado.split('&')[1]}
+                </>
+              ) : invitado}!
+            </h2>
             <p className="mb-6">Estás invitado a nuestra boda</p>
           </>
         ) : (
