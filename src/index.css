@@ -46,12 +46,12 @@
   /* Landing Page Exit */
   .landing-exit {
     @apply opacity-0 scale-[1.05] blur-[10px] pointer-events-none;
-    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 1.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Main Content Reveal */
   .content-reveal {
-    animation: apple-reveal 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: apple-reveal 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   @keyframes apple-reveal {
@@ -69,7 +69,7 @@
 
   /* Overlay for Depth */
   .glass-overlay {
-    @apply fixed inset-0 z-[60] bg-fondo opacity-100 transition-opacity duration-[1200ms] pointer-events-none;
+    @apply fixed inset-0 z-[60] bg-fondo opacity-100 transition-opacity duration-[1800ms] pointer-events-none;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
   .glass-overlay.hidden-overlay {

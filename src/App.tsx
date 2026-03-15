@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, FormEvent } from 'react';
 import { CalendarHeart, Wine, Gift, MapPin, MailOpen, Music, Pause } from 'lucide-react';
 
 const fechaBoda = new Date("2026-05-02T12:15:00");
-const numeroWhatsApp = "573107379163";
+const numeroWhatsApp = "573024413618";
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
@@ -80,15 +80,15 @@ function App() {
       setReproduciendo(true);
     }
 
-    // Secuencia de animación tipo Apple
+    // Secuencia de animación tipo Apple (Sincronizada con CSS slower)
     setTimeout(() => {
       setMostrarContenido(true);
       window.scrollTo(0, 0);
-    }, 400);
+    }, 800);
 
     setTimeout(() => {
       setEstaAbierto(true);
-    }, 1200);
+    }, 2000);
   };
 
   const toggleMusica = () => {
@@ -122,10 +122,31 @@ function App() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handlSubmit = (e: FormEvent) => {
+  const handlSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setRsvpSuccess(true);
-    setFormData({ nombre: '', asistencia: '', alergias: '', mensaje: '' });
+    if (!formData.nombre || !formData.asistencia) {
+      alert("Por favor escribe tu nombre y selecciona si asistirás o no.");
+      return;
+    }
+
+    // Enviar a Formspree (AJAX) para no recargar la página
+    try {
+      const response = await fetch("https://formspree.io/f/cesar.aristi0205@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setRsvpSuccess(true);
+        setFormData({ nombre: formData.nombre, asistencia: '', alergias: '', mensaje: '' });
+      } else {
+        alert("Hubo un error al enviar tu respuesta. Por favor intenta de nuevo.");
+      }
+    } catch (error) {
+      console.error("Error enviando formulario:", error);
+      alert("Error de conexión. Intenta nuevamente.");
+    }
   };
 
   const handleWhatsApp = (e: React.MouseEvent) => {
