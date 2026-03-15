@@ -182,6 +182,12 @@ function App() {
     return n.includes('&') || n.includes(' y ') || n.includes('familia') || n.includes('congregación') || n.includes('congregacion');
   };
 
+  const showPrivateSections = (name: string | null) => {
+    if (!name) return false;
+    const n = name.trim().toLowerCase();
+    return !n.includes('congregación') && !n.includes('congregacion');
+  };
+
   const getGreeting = (name: string) => {
     // Plural / Familia
     if (isPluralName(name)) {
@@ -321,8 +327,8 @@ function App() {
         <a className="btn w-auto inline-block mt-4 px-8" href="https://www.google.com/maps/search/?api=1&query=Cl+30A+%23+82-11+Belén+Medellín+Antioquia" target="_blank" rel="noopener noreferrer">VER UBICACIÓN</a>
       </section>
 
-      {/* CELEBRACIÓN - SOLO CON NOMBRE */}
-      {invitado && (
+      {/* CELEBRACIÓN - SOLO PARA INVITADOS PRIVADOS */}
+      {showPrivateSections(invitado) && (
         <section className="fade-up flex flex-col items-center">
           <div className="text-acento mb-[12px] p-4 bg-[#fbf7f2] rounded-full shadow-sm">
             <Wine size={38} strokeWidth={1.5} />
@@ -356,8 +362,8 @@ function App() {
         </div>
       </section>
 
-      {/* MAPA - SOLO CON NOMBRE */}
-      {invitado && (
+      {/* MAPA - SOLO PARA INVITADOS PRIVADOS */}
+      {showPrivateSections(invitado) && (
         <section className="bg-fondo-sec fade-up">
           <h2>Cómo llegar</h2>
           <p>Aquí puedes ubicar fácilmente el lugar de la celebración.</p>
@@ -374,8 +380,8 @@ function App() {
         </section>
       )}
 
-      {/* REGALOS - SOLO CON NOMBRE */}
-      {invitado && (
+      {/* REGALOS - SOLO PARA INVITADOS PRIVADOS */}
+      {showPrivateSections(invitado) && (
         <section className="fade-up flex flex-col items-center">
           <div className="text-acento mb-[12px] p-4 bg-[#fbf7f2] rounded-full shadow-sm">
             <Gift size={38} strokeWidth={1.5} />
@@ -389,8 +395,8 @@ function App() {
         </section>
       )}
 
-      {/* RSVP - SOLO CON NOMBRE */}
-      {invitado && (
+      {/* RSVP - SOLO PARA INVITADOS PRIVADOS */}
+      {showPrivateSections(invitado) && (
         <section id="rsvp" className="bg-fondo-sec fade-up">
           <h3>CONFIRMAR ASISTENCIA</h3>
           <p>Por favor confirma tu asistencia antes del 15 de abril.</p>
