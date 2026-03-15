@@ -141,7 +141,11 @@ function App() {
         setRsvpSuccess(true);
         setFormData({ nombre: formData.nombre, asistencia: '', alergias: '', mensaje: '' });
       } else {
-        alert("Hubo un error al enviar tu respuesta. Por favor intenta de nuevo.");
+        // Fallback: Si Formspree falla (posiblemente por falta de activación), usar mailto
+        const asistenciaTexto = formData.asistencia === "si" ? "Sí, asistiré" : "No podré asistir";
+        const body = `Nombre: ${formData.nombre}\nAsistencia: ${asistenciaTexto}\nAlergias: ${formData.alergias}\nMensaje: ${formData.mensaje}`;
+        window.location.href = `mailto:cesar.aristi0205@gmail.com?subject=Confirmación Boda - ${formData.nombre}&body=${encodeURIComponent(body)}`;
+        setRsvpSuccess(true);
       }
     } catch (error) {
       console.error("Error enviando formulario:", error);
@@ -149,18 +153,10 @@ function App() {
     }
   };
 
-  const handleWhatsApp = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (!formData.nombre || !formData.asistencia) {
-      alert("Por favor escribe tu nombre y selecciona si asistirás o no.");
-      return;
-    }
-
+  const handleWhatsApp = () => {
     const asistenciaTexto = formData.asistencia === "si" ? "Sí, asistiré" : "No podré asistir";
     const texto = `Hola Cesar y Lorena 💛\nMi nombre es: ${formData.nombre}\nConfirmación: ${asistenciaTexto}\nAlergias o intolerancias: ${formData.alergias || "Ninguna"}\nMensaje: ${formData.mensaje || "Sin mensaje"}`;
-    
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
-    window.open(url, "_blank");
+    return `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
   };
 
   return (
@@ -397,7 +393,18 @@ function App() {
 
             <button type="submit" className="btn">ENVIAR RESPUESTA</button>
             
-            <a className="btn btn-whatsapp text-center" href="#" onClick={handleWhatsApp} target="_blank" rel="noopener noreferrer">
+            <a 
+              className="btn btn-whatsapp text-center" 
+              href={handleWhatsApp()} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                if (!formData.nombre || !formData.asistencia) {
+                  e.preventDefault();
+                  alert("Por favor escribe tu nombre y selecciona si asistirás o no.");
+                }
+              }}
+            >
               WHATSAPP RSVP
             </a>
 
