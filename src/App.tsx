@@ -254,9 +254,9 @@ function App() {
             <h2 className="mb-2">
               ¡Hola {invitado.includes('&') || invitado.toLowerCase().includes(' y ') ? (
                 <>
-                  {invitado.split(/[&yY]/)[0].trim()}
+                  {invitado.split(/\s*(?:&|\by\b)\s*/i)[0].trim()}
                   <span className="text-[0.6em] sm:text-[0.5em] opacity-80 mx-1 relative -top-[0.1em]">&</span>
-                  {invitado.split(/[&yY]/)[1].trim()}
+                  {invitado.split(/\s*(?:&|\by\b)\s*/i)[1]?.trim()}
                 </>
               ) : invitado}!
             </h2>
