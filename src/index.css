@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 
+  Nota: Las advertencias amarillas en el IDE son normales en proyectos de Tailwind CSS 
+  ya que se usan reglas especiales como @tailwind y @apply. 
+*/
+
 @layer base {
   html {
     scroll-behavior: smooth;

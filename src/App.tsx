@@ -441,17 +441,20 @@ function App() {
         <p className="mt-[8px] font-script text-[2rem] sm:text-[2.4rem] text-white">Cesar & Lorena</p>
       </footer>
 
-      {/* MÚSICA BTN */}
-      <audio ref={audioRef} loop src="/musica.mp3"></audio>
-      <button 
-        onClick={toggleMusica}
-        className={`fixed right-[16px] sm:right-[22px] bottom-[16px] sm:bottom-[22px] w-[50px] sm:w-[56px] h-[50px] sm:h-[56px] rounded-full border-none text-white cursor-pointer shadow-[0_12px_26px_rgba(55,39,27,0.28)] z-[1000] outline-none touch-manipulation transition-all duration-200 hover:scale-105 hover:opacity-95 flex items-center justify-center ${reproduciendo ? 'bg-acento-oscuro' : 'bg-acento'}`}
-        title="Música"
-        aria-label="Reproducir música"
-      >
-        {reproduciendo ? <Pause size={22} fill="currentColor" /> : <Music size={22} strokeWidth={2.5} />}
-      </button>
       </div>
+
+      {/* MÚSICA BTN FLOTANTE */}
+      <audio ref={audioRef} loop src="/musica.mp3"></audio>
+      {estaAbierto && (
+        <button 
+          onClick={toggleMusica}
+          className={`fixed right-[20px] sm:right-[28px] bottom-[20px] sm:bottom-[28px] w-[54px] sm:w-[60px] h-[54px] sm:h-[60px] rounded-full border-none text-white cursor-pointer shadow-[0_15px_35px_rgba(55,39,27,0.35)] z-[1000] outline-none touch-manipulation transition-all duration-500 hover:scale-110 hover:shadow-[0_20px_45px_rgba(55,39,27,0.45)] backdrop-blur-md flex items-center justify-center animate-in fade-in zoom-in duration-700 ${reproduciendo ? 'bg-[rgba(90,64,46,0.85)]' : 'bg-[rgba(125,92,67,0.85)]'}`}
+          title="Música"
+          aria-label="Reproducir música"
+        >
+          {reproduciendo ? <Pause size={24} fill="currentColor" /> : <Music size={24} strokeWidth={2.5} />}
+        </button>
+      )}
     </>
   );
 }
