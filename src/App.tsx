@@ -17,8 +17,9 @@ function App() {
     const params = new URLSearchParams(window.location.search);
     const nombreURL = params.get('n');
     if (nombreURL) {
-      setInvitado(nombreURL);
-      setFormData(prev => ({ ...prev, nombre: nombreURL }));
+      const nombreLimpio = nombreURL.replace(/-/g, '&');
+      setInvitado(nombreLimpio);
+      setFormData(prev => ({ ...prev, nombre: nombreLimpio }));
     }
   }, []);
   
@@ -222,6 +223,7 @@ function App() {
           <span className="text-acento-claro text-[1.5rem]">|</span>
           <span>12:15 PM</span>
         </div>
+        <p className="text-[#9a836a] font-bold text-[0.9rem] mb-[2px]">Salón del Reino de los Testigos de Jehová</p>
         <p className="text-[#9a836a] text-[0.88rem] mb-[2px]">Cl 30A # 82-11, Brr. Belén</p>
         <p className="text-[#9a836a] text-[0.88rem] mb-[8px]">MEDELLÍN, ANTIOQUIA</p>
         <a className="btn w-auto inline-block mt-4 px-8" href="https://www.google.com/maps/search/?api=1&query=Cl+30A+%23+82-11+Belén+Medellín+Antioquia" target="_blank" rel="noopener noreferrer">VER UBICACIÓN</a>
