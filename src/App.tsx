@@ -177,10 +177,14 @@ function App() {
     return `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
   };
 
-  const getGreeting = (name: string) => {
+  const isPluralName = (name: string) => {
     const n = name.trim().toLowerCase();
+    return n.includes('&') || n.includes(' y ') || n.includes('familia');
+  };
+
+  const getGreeting = (name: string) => {
     // Plural / Familia
-    if (n.includes('&') || n.includes(' y ') || n.includes('familia')) {
+    if (isPluralName(name)) {
       return "Están invitados a nuestra boda";
     }
     // Heurística para femenino (nombre termina en 'a')
@@ -261,7 +265,7 @@ function App() {
         ) : (
           <h2>¡Estás invitado!</h2>
         )}
-        <p>Con mucha alegría queremos compartir contigo uno de los días más importantes de nuestra vida. Gracias por acompañarnos en este momento tan especial.</p>
+        <p>Con mucha alegría queremos {isPluralName(invitado || "") ? "compartir con ustedes" : "compartir contigo"} uno de los días más importantes de nuestra vida. Gracias por acompañarnos en este momento tan especial.</p>
 
         <div className="grid grid-cols-4 gap-[8px] sm:gap-[12px] my-[24px] sm:my-[30px] mx-0 w-full bg-transparent">
           {Object.entries(timeLeft).map(([label, value]) => (
