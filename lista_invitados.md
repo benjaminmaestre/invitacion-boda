@@ -17,17 +17,19 @@ Aquí tienes la lista de enlaces personalizados para tus invitados.
 | 11 | Julia | `https://invitacion-cesar-lorena.vercel.app/Julia` |
 | 12 | Andrés & Lina | `https://invitacion-cesar-lorena.vercel.app/Andrés+-+Lina` |
 | 13 | Alberto & Aracely | `https://invitacion-cesar-lorena.vercel.app/Alberto+-+Aracely` |
-| 14 | Marcela Jaramillo | `https://invitacion-cesar-lorena.vercel.app/Marcela+Jaramillo` |
+| 14 | Marcela | `https://invitacion-cesar-lorena.vercel.app/Marcela` |
 | 15 | Familia Vargas Restrepo | `https://invitacion-cesar-lorena.vercel.app/Familia+Vargas+Restrepo` |
 | 16 | Yesica | `https://invitacion-cesar-lorena.vercel.app/Yesica` |
 | 17 | Lucia & Jaime | `https://invitacion-cesar-lorena.vercel.app/Lucia+-+Jaime` |
 | 18 | Andrés Y Karen | `https://invitacion-cesar-lorena.vercel.app/Andrés+Y+Karen` |
-| 19 | Jorge mejia & Angela | `https://invitacion-cesar-lorena.vercel.app/Jorge+mejia+-+Angela` |
-| 20 | José Angarita | `https://invitacion-cesar-lorena.vercel.app/José+Angarita` |
+| 19 | Jorge & Angela | `https://invitacion-cesar-lorena.vercel.app/Jorge+-+Angela` |
+| 20 | José | `https://invitacion-cesar-lorena.vercel.app/José` |
 | 21 | Valeria | `https://invitacion-cesar-lorena.vercel.app/Valeria` |
+| 22 | Congregación Las Torres | `https://invitacion-cesar-lorena.vercel.app/Congregación+Las+Torres` |
+| 23 | Congregación Aguas Frías | `https://invitacion-cesar-lorena.vercel.app/Congregación+Aguas+Frías` |
 
 ## Cómo funciona
 El código de tu aplicación ya está preparado para leer el nombre directamente desde la dirección. Cuando el invitado haga clic en su enlace:
-1. Verá su nombre con "&" pequeña en la bienvenida.
+1. Verá su nombre (o congregación) en la bienvenida.
 2. La sección de **Confirmación (RSVP)** tendrá su nombre escrito automáticamente.
 3. Se desbloquearán las secciones especiales (Celebración, Regalos, Mapa).

@@ -179,7 +179,7 @@ function App() {
 
   const isPluralName = (name: string) => {
     const n = name.trim().toLowerCase();
-    return n.includes('&') || n.includes(' y ') || n.includes('familia');
+    return n.includes('&') || n.includes(' y ') || n.includes('familia') || n.includes('congregación') || n.includes('congregacion');
   };
 
   const getGreeting = (name: string) => {
@@ -252,13 +252,17 @@ function App() {
         {invitado ? (
           <>
             <h2 className="mb-2">
-              ¡Hola {invitado.includes('&') || invitado.toLowerCase().includes(' y ') ? (
-                <>
-                  {invitado.split(/\s*(?:&|\by\b)\s*/i)[0].trim()}
-                  <span className="text-[0.6em] sm:text-[0.5em] opacity-80 mx-1 relative -top-[0.1em]">&</span>
-                  {invitado.split(/\s*(?:&|\by\b)\s*/i)[1]?.trim()}
-                </>
-              ) : invitado}!
+              {invitado.toLowerCase().includes('congregación') || invitado.toLowerCase().includes('congregacion') ? (
+                invitado
+              ) : (
+                <>¡Hola {invitado.includes('&') || invitado.toLowerCase().includes(' y ') ? (
+                  <>
+                    {invitado.split(/\s*(?:&|\by\b)\s*/i)[0].trim()}
+                    <span className="text-[0.6em] sm:text-[0.5em] opacity-80 mx-1 relative -top-[0.1em]">&</span>
+                    {invitado.split(/\s*(?:&|\by\b)\s*/i)[1]?.trim()}
+                  </>
+                ) : invitado}!</>
+              )}
             </h2>
             <p className="mb-6">{getGreeting(invitado)}</p>
           </>
