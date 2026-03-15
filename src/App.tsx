@@ -123,7 +123,7 @@ function App() {
   // CALENDARIO
   const handleCalendario = (e: React.MouseEvent) => {
     e.preventDefault();
-    const url = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Cesar+%26+Lorena&dates=20260502T121500/20260502T180000&details=¡Nos+casamos!&location=Cl+30A+%23+82-11,+Belén,+Medellín";
+    const url = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Cesar+%26+Lorena&dates=20260502T121500/20260502T180000&details=¡Nos+casamos!&location=Medellín,+Antioquia";
     window.open(url, "_blank");
   };
 
@@ -309,8 +309,10 @@ function App() {
             <span className="text-acento-claro text-[1.5rem]">|</span>
             <span>2:00 PM</span>
           </div>
-          <p className="text-[#9a836a] text-[0.88rem] mb-[8px]">Salon de Eventos Residencias Plaza Vicuña</p>
-          <a className="btn w-auto inline-block mt-4 px-8" href="https://maps.app.goo.gl/9rUdQrSbBHig1hCJ8" target="_blank" rel="noopener noreferrer">VER UBICACIÓN</a>
+          <p className="text-[#9a836a] font-bold text-[0.9rem] mb-[2px]">Urbanización Plaza Vicuña</p>
+          <p className="text-[#9a836a] text-[0.88rem] mb-[2px]">Carrera 82C # 30A-105</p>
+          <p className="text-[#9a836a] text-[0.88rem] mb-[8px]">(Frente al C.C. Los Molinos)</p>
+          <a className="btn w-auto inline-block mt-4 px-8" href="https://www.google.com/maps/search/?api=1&query=Carrera+82C+30A-105+Urbanización+Plaza+Vicuña+Medellín" target="_blank" rel="noopener noreferrer">VER UBICACIÓN</a>
         </section>
       )}
 
@@ -337,7 +339,7 @@ function App() {
           <p>Aquí puedes ubicar fácilmente el lugar de la celebración.</p>
           <div className="mt-[18px] rounded-[18px] sm:rounded-[22px] overflow-hidden shadow-custom w-full max-w-full">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d5773.481014367276!2d-75.60854120142237!3d6.231044206456496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x8e442993c7654615%3A0x7def4caf97181644!2zVXJiYW5pemFjacOzbiBQbGF6YSBWaWN1w7FhLCBDcmEuIDgyQyAjMzBhLTEwNSwgTWVkZWxsw61uLCBCZWzDqW4sIE1lZGVsbMOtbiwgQW50aW9xdWlh!3m2!1d6.2329104!2d-75.6053775!5e0!3m2!1ses!2sco!4v1773269181740!5m2!1ses!2sco"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1158925565154!2d-75.60795232414169!3d6.235212393753063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442994073574c7%3A0x7def4caf97181644!2zVXJiYW5pemFjacOzbiBQbGF6YSBWaWN1w7FhLCBDcmEuIDgyQyAjMzBhLTEwNSwgTWVkZWxsw61uLCBCZWzDqW4sIE1lZGVsbMOtbiwgQW50aW9xdWlh!5e0!3m2!1ses!2sco!4v1710467554321!5m2!1ses!2sco"
               className="w-full h-[220px] sm:h-[260px] border-0 block"
               allowFullScreen={false}
               loading="lazy"
