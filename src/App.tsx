@@ -20,7 +20,8 @@ function App() {
     const nombreURL = path ? decodeURIComponent(path) : params.get('n');
 
     if (nombreURL) {
-      const nombreLimpio = nombreURL.replace(/-/g, '&');
+      // Reemplazar guiones por & y signos + por espacios si vienen de la URL
+      const nombreLimpio = nombreURL.replace(/-/g, '&').replace(/\+/g, ' ');
       setInvitado(nombreLimpio);
       setFormData(prev => ({ ...prev, nombre: nombreLimpio }));
     }
