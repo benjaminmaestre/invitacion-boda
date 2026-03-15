@@ -177,6 +177,22 @@ function App() {
     return `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
   };
 
+  const getGreeting = (name: string) => {
+    const n = name.trim().toLowerCase();
+    // Plural / Familia
+    if (n.includes('&') || n.includes(' y ') || n.includes('familia')) {
+      return "Están invitados a nuestra boda";
+    }
+    // Heurística para femenino (nombre termina en 'a')
+    // Captura: Yolanda, Julia, Marcela, Yesica, Valeria
+    const firstName = name.trim().split(' ')[0].toLowerCase();
+    if (firstName.endsWith('a')) {
+      return "Estás invitada a nuestra boda";
+    }
+    // Masculino / Genérico
+    return "Estás invitado a nuestra boda";
+  };
+
   return (
     <>
       {/* OVERLAY DE REVELACIÓN (APPLE DEPTH) */}
@@ -232,15 +248,15 @@ function App() {
         {invitado ? (
           <>
             <h2 className="mb-2">
-              ¡Hola {invitado.includes('&') ? (
+              ¡Hola {invitado.includes('&') || invitado.toLowerCase().includes(' y ') ? (
                 <>
-                  {invitado.split('&')[0]}
+                  {invitado.split(/[&yY]/)[0].trim()}
                   <span className="text-[0.6em] sm:text-[0.5em] opacity-80 mx-1 relative -top-[0.1em]">&</span>
-                  {invitado.split('&')[1]}
+                  {invitado.split(/[&yY]/)[1].trim()}
                 </>
               ) : invitado}!
             </h2>
-            <p className="mb-6">Estás invitado a nuestra boda</p>
+            <p className="mb-6">{getGreeting(invitado)}</p>
           </>
         ) : (
           <h2>¡Estás invitado!</h2>
