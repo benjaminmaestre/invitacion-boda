@@ -27,7 +27,7 @@ Aquí tienes la lista de enlaces personalizados para tus invitados.
 | 21 | Valeria | `https://invitacion-cesar-lorena.vercel.app/Valeria` |
 
 ## Cómo funciona
-El código de tu aplicación ya está preparado para leer el nombre que viene después de `?n=` en la barra de direcciones. Cuando el invitado haga clic en su enlace:
-1. Verá su nombre con "&" en la bienvenida.
+El código de tu aplicación ya está preparado para leer el nombre directamente desde la dirección. Cuando el invitado haga clic en su enlace:
+1. Verá su nombre con "&" pequeña en la bienvenida.
 2. La sección de **Confirmación (RSVP)** tendrá su nombre escrito automáticamente.
 3. Se desbloquearán las secciones especiales (Celebración, Regalos, Mapa).

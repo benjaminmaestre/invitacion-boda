@@ -10,6 +10,8 @@ function App() {
   const [rsvpSuccess, setRsvpSuccess] = useState(false);
   const [invitado, setInvitado] = useState('');
   const [estaAbierto, setEstaAbierto] = useState(false);
+  const [iniciandoSalida, setIniciandoSalida] = useState(false);
+  const [mostrarContenido, setMostrarContenido] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   // CAPTURAR NOMBRE DE URL
@@ -71,11 +73,22 @@ function App() {
 
   // MÚSICA
   const abrirInvitacion = () => {
-    setEstaAbierto(true);
+    setIniciandoSalida(true);
+    
     if (audioRef.current) {
       audioRef.current.play().catch(() => {});
       setReproduciendo(true);
     }
+
+    // Secuencia de animación tipo Apple
+    setTimeout(() => {
+      setMostrarContenido(true);
+      window.scrollTo(0, 0);
+    }, 400);
+
+    setTimeout(() => {
+      setEstaAbierto(true);
+    }, 1200);
   };
 
   const toggleMusica = () => {
@@ -131,22 +144,30 @@ function App() {
 
   return (
     <>
+      {/* OVERLAY DE REVELACIÓN (APPLE DEPTH) */}
+      <div className={`glass-overlay ${iniciandoSalida ? 'hidden-overlay' : ''}`}></div>
+
       {/* PANTALLA DE INICIO (SOBRE) */}
       {!estaAbierto && (
-        <div className="fixed inset-0 z-[2000] flex items-end justify-center bg-[#140e0a] pb-[10vh] sm:pb-[15vh]">
+        <div className={`fixed inset-0 z-[2000] flex items-end justify-center bg-[#140e0a] pb-[10vh] sm:pb-[15vh] transition-all duration-1000 ${iniciandoSalida ? 'landing-exit' : ''}`}>
           <div className="absolute inset-0 bg-[url('/portada.jpeg')] bg-cover bg-[center_35%] opacity-40"></div>
-          <div className="relative z-10 text-center px-6 fade-up visible">
+          <div className="relative z-10 text-center px-6">
+            <div className="w-[60px] h-[1px] bg-[#c49d6f] mb-8 opacity-40 mx-auto"></div>
             <p className="text-[#f0d2ae] tracking-[4px] text-[0.7rem] mb-4">ESTÁS INVITADO A LA BODA DE</p>
-            <h2 className="font-script text-white text-[3.5rem] leading-tight mb-8">Cesar & Lorena</h2>
+            <h2 className="font-script text-white text-[3.8rem] leading-tight mb-8 drop-shadow-lg">Cesar & Lorena</h2>
             <button 
               onClick={abrirInvitacion}
-              className="bg-[#c49d6f] hover:bg-[#d8b891] text-white px-10 py-4 rounded-full text-[0.8rem] tracking-[3px] transition-all transform hover:scale-105 shadow-xl font-bold flex items-center justify-center gap-3 mx-auto"
+              className="bg-[#c49d6f] text-white px-12 py-5 rounded-full text-[0.75rem] tracking-[3px] apple-easing hover:scale-[1.02] active:scale-[0.98] shadow-[0_20px_50px_rgba(0,0,0,0.3)] font-bold flex items-center justify-center gap-3 mx-auto"
             >
-              <MailOpen size={20} /> ABRIR INVITACIÓN
+              <MailOpen size={18} /> ABRIR INVITACIÓN
             </button>
+            <div className="w-[40px] h-[1px] bg-[#c49d6f] mt-10 opacity-30 mx-auto"></div>
           </div>
         </div>
       )}
+
+      {/* REVEAL WRAPPER */}
+      <div className={mostrarContenido ? "content-reveal" : "opacity-0"}>
 
       {/* HERO */}
       <section className="min-h-[100svh] relative flex flex-col justify-end items-center text-center p-4 sm:p-10 overflow-hidden bg-[url('/portada.jpeg')] bg-cover bg-[center_35%] bg-no-repeat w-full max-w-none border-b-0 pb-[8vh] sm:pb-[10vh]">
@@ -384,6 +405,7 @@ function App() {
       >
         {reproduciendo ? <Pause size={22} fill="currentColor" /> : <Music size={22} strokeWidth={2.5} />}
       </button>
+      </div>
     </>
   );
 }

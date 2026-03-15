@@ -37,6 +37,44 @@
   .scroll-invite {
     animation: scroll-indicator 2.5s ease-in-out infinite;
   }
+
+  /* PREMIUM APPLE-STYLE TRANSITIONS */
+  .apple-easing {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Landing Page Exit */
+  .landing-exit {
+    @apply opacity-0 scale-[1.05] blur-[10px] pointer-events-none;
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Main Content Reveal */
+  .content-reveal {
+    animation: apple-reveal 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes apple-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      filter: blur(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  /* Overlay for Depth */
+  .glass-overlay {
+    @apply fixed inset-0 z-[60] bg-fondo opacity-100 transition-opacity duration-[1200ms] pointer-events-none;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-overlay.hidden-overlay {
+    @apply opacity-0;
+  }
 }
 
 @layer components {
