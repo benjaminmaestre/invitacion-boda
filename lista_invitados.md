@@ -27,6 +27,7 @@ Aquí tienes la lista de enlaces personalizados para tus invitados.
 | 21 | Valeria | `https://invitacion-cesar-lorena.vercel.app/Valeria` |
 | 22 | Congregación Las Torres | `https://invitacion-cesar-lorena.vercel.app/Congregación+Las+Torres` |
 | 23 | Congregación Aguas Frías | `https://invitacion-cesar-lorena.vercel.app/Congregación+Aguas+Frías` |
+| 24 | Edgar Ospina | `https://invitacion-cesar-lorena.vercel.app/Edgar+Ospina` |
 
 ## Cómo funciona
 El código de tu aplicación ya está preparado para leer el nombre directamente desde la dirección. Cuando el invitado haga clic en su enlace:

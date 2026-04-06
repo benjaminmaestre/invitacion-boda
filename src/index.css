@@ -16,31 +16,13 @@
   }
 }
 
+
 @layer utilities {
   .fade-up {
     @apply opacity-0 translate-y-[28px] transition-all duration-[800ms] ease-in-out;
   }
   .fade-up.visible {
     @apply opacity-100 translate-y-0;
-  }
-
-  @keyframes scroll-indicator {
-    0% {
-      transform: translateY(0);
-      opacity: 0.4;
-    }
-    50% {
-      transform: translateY(12px);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 0.4;
-    }
-  }
-
-  .scroll-invite {
-    animation: scroll-indicator 2.5s ease-in-out infinite;
   }
 
   /* PREMIUM APPLE-STYLE TRANSITIONS */
@@ -54,28 +36,10 @@
     transition: all 1.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Main Content Reveal */
-  .content-reveal {
-    animation: apple-reveal 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
-
-  @keyframes apple-reveal {
-    from {
-      opacity: 0;
-      transform: translateY(40px) scale(0.98);
-      filter: blur(15px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
-    }
-  }
-
-  /* Overlay for Depth */
+  /* Overlay for Depth — transición unificada para evitar conflicto */
   .glass-overlay {
-    @apply fixed inset-0 z-[60] bg-fondo opacity-100 transition-opacity duration-[1800ms] pointer-events-none;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    @apply fixed inset-0 z-[60] bg-fondo opacity-100 pointer-events-none;
+    transition: opacity 1800ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .glass-overlay.hidden-overlay {
     @apply opacity-0;

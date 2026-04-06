@@ -22,6 +22,25 @@ export default {
       },
       boxShadow: {
         'custom': '0 18px 40px rgba(54, 38, 24, 0.14)',
+      },
+      keyframes: {
+        'scroll-indicator': {
+          '0%, 100%': { transform: 'translateY(0)', opacity: '0.4' },
+          '50%': { transform: 'translateY(12px)', opacity: '1' },
+        },
+        'apple-reveal': {
+          'from': { opacity: '0', transform: 'translateY(40px) scale(0.98)', filter: 'blur(15px)' },
+          'to': { opacity: '1', transform: 'translateY(0) scale(1)', filter: 'blur(0)' },
+        },
+        'fade-in-zoom': {
+          'from': { opacity: '0', transform: 'scale(0.8)' },
+          'to': { opacity: '1', transform: 'scale(1)' },
+        }
+      },
+      animation: {
+        'scroll-indicator': 'scroll-indicator 2.5s ease-in-out infinite',
+        'apple-reveal': 'apple-reveal 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+        'fade-in-zoom': 'fade-in-zoom 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards',
       }
     },
   },

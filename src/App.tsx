@@ -140,7 +140,7 @@ function App() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handlSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!formData.nombre || !formData.asistencia) {
       alert("Por favor escribe tu nombre y selecciona si asistirás o no.");
@@ -173,7 +173,7 @@ function App() {
 
   const handleWhatsApp = () => {
     const asistenciaTexto = formData.asistencia === "si" ? "Sí, asistiré" : "No podré asistir";
-    const texto = `Hola Cesar y Lorena 💛\nMi nombre es: ${formData.nombre}\nConfirmación: ${asistenciaTexto}\nAlergias o intolerancias: ${formData.alergias || "Ninguna"}\nMensaje: ${formData.mensaje || "Sin mensaje"}`;
+    const texto = `Hola César y Lorena 💛\nMi nombre es: ${formData.nombre}\nConfirmación: ${asistenciaTexto}\nAlergias o intolerancias: ${formData.alergias || "Ninguna"}\nMensaje: ${formData.mensaje || "Sin mensaje"}`;
     return `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
   };
 
@@ -220,7 +220,7 @@ function App() {
           <div className="relative z-10 text-center px-6">
             <div className="w-[60px] h-[1px] bg-[#c49d6f] mb-8 opacity-40 mx-auto"></div>
             <p className="text-[#f0d2ae] tracking-[4px] text-[0.7rem] mb-4">ESTÁS INVITADO A LA BODA DE</p>
-            <h2 className="font-script text-white text-[3.8rem] leading-tight mb-8 drop-shadow-lg">Cesar & Lorena</h2>
+            <h2 className="font-script text-white text-[3.8rem] leading-tight mb-8 drop-shadow-lg">César & Lorena</h2>
             <button 
               onClick={abrirInvitacion}
               className="bg-[#c49d6f] text-white px-12 py-5 rounded-full text-[0.75rem] tracking-[3px] apple-easing hover:scale-[1.02] active:scale-[0.98] shadow-[0_20px_50px_rgba(0,0,0,0.3)] font-bold flex items-center justify-center gap-3 mx-auto"
@@ -233,7 +233,7 @@ function App() {
       )}
 
       {/* REVEAL WRAPPER */}
-      <div className={mostrarContenido ? "content-reveal" : "opacity-0"}>
+      <div className={mostrarContenido ? "animate-apple-reveal" : "opacity-0"}>
 
       {/* HERO */}
       <section className="min-h-[100svh] relative flex flex-col justify-end items-center text-center p-4 sm:p-10 overflow-hidden bg-[url('/portada.jpeg')] bg-cover bg-[center_35%] bg-no-repeat w-full max-w-none border-b-0 pb-[8vh] sm:pb-[10vh]">
@@ -242,12 +242,12 @@ function App() {
         <div className="relative z-10 text-white max-w-[400px] fade-up visible w-full px-2 pt-10 opacity-[0.95]">
           <p className="text-[0.65rem] sm:text-[0.72rem] tracking-[3px] sm:tracking-[4px] mb-[18px] text-[rgba(255,244,230,0.88)] drop-shadow-md">A DONDE TÚ VAYAS, YO IRÉ</p>
           <h1 className="font-script flex items-center justify-center gap-[6px] sm:gap-[12px] text-[3.6rem] sm:text-[4.8rem] font-normal leading-[1] drop-[0_4px_20px_rgba(0,0,0,0.25)] whitespace-nowrap" style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 0.6)' }}>
-            <span>Cesar</span>
+            <span>César</span>
             <span className="text-[1.8rem] sm:text-[1.8rem] opacity-80 mt-2 pr-2 pl-3">&</span>
             <span>Lorena</span>
           </h1>
           <p className="mt-[14px] text-[0.7rem] sm:text-[0.8rem] tracking-[4px] sm:tracking-[6px] text-[rgba(255,244,230,0.92)] drop-shadow-md">NOS CASAMOS</p>
-          <a href="#bienvenida" className="inline-block mt-[20px] sm:mt-[34px] text-[2rem] text-white no-underline scroll-invite opacity-85 hover:opacity-100" aria-label="Ir abajo">&#8964;</a>
+          <a href="#bienvenida" className="inline-block mt-[20px] sm:mt-[34px] text-[2rem] text-white no-underline animate-scroll-indicator opacity-85 hover:opacity-100" aria-label="Ir abajo">&#8964;</a>
         </div>
       </section>
 
@@ -406,7 +406,7 @@ function App() {
           <h3>CONFIRMAR ASISTENCIA</h3>
           <p>Por favor confirma tu asistencia antes del 15 de abril.</p>
 
-          <form onSubmit={handlSubmit} className="flex flex-col gap-[12px] mt-[22px] text-left">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-[12px] mt-[22px] text-left">
             <input
               type="text"
               name="nombre"
@@ -464,7 +464,7 @@ function App() {
             </a>
 
             {rsvpSuccess && (
-              <p className="text-[#476345] mt-[12px] text-center !text-[#476345]">
+              <p className="mt-[12px] text-center text-[#476345]">
                 ¡Gracias por confirmar! 💛
               </p>
             )}
@@ -475,7 +475,7 @@ function App() {
       {/* FOOTER */}
       <footer className="fade-up px-[20px] sm:px-[28px] py-[36px] sm:py-[42px] text-center bg-acento">
         <p className="text-[#ebd9c5] text-[0.8rem] sm:text-[0.88rem]">Con amor</p>
-        <p className="mt-[8px] font-script text-[2rem] sm:text-[2.4rem] text-white">Cesar & Lorena</p>
+        <p className="mt-[8px] font-script text-[2rem] sm:text-[2.4rem] text-white">César & Lorena</p>
       </footer>
 
       </div>
@@ -485,7 +485,7 @@ function App() {
       {estaAbierto && (
         <button 
           onClick={toggleMusica}
-          className={`fixed right-[20px] sm:right-[28px] bottom-[20px] sm:bottom-[28px] w-[54px] sm:w-[60px] h-[54px] sm:h-[60px] rounded-full border-none text-white cursor-pointer shadow-[0_15px_35px_rgba(55,39,27,0.35)] z-[1000] outline-none touch-manipulation transition-all duration-500 hover:scale-110 hover:shadow-[0_20px_45px_rgba(55,39,27,0.45)] backdrop-blur-md flex items-center justify-center animate-in fade-in zoom-in duration-700 ${reproduciendo ? 'bg-[rgba(90,64,46,0.85)]' : 'bg-[rgba(125,92,67,0.85)]'}`}
+          className={`fixed right-[20px] sm:right-[28px] bottom-[20px] sm:bottom-[28px] w-[54px] sm:w-[60px] h-[54px] sm:h-[60px] rounded-full border-none text-white cursor-pointer shadow-[0_15px_35px_rgba(55,39,27,0.35)] z-[1000] outline-none touch-manipulation transition-all duration-500 hover:scale-110 hover:shadow-[0_20px_45px_rgba(55,39,27,0.45)] backdrop-blur-md flex items-center justify-center animate-fade-in-zoom ${reproduciendo ? 'bg-[rgba(90,64,46,0.85)]' : 'bg-[rgba(125,92,67,0.85)]'}`}
           title="Música"
           aria-label="Reproducir música"
         >
